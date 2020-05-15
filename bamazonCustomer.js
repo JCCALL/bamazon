@@ -74,7 +74,7 @@ function purchaseOrder(ID, amt){
 
             connection.query("UPDATE products SET stock_quantity = stock_quantity - " + amt + " WHERE item_id = " + ID);
         } else {
-            console.log("I am sorry to inform you that we do not have enough " + res[0].product_name + " to complete your order.");
+            console.log("I am sorry to inform you that we do not have enough " + res[0].product_name + " to complete your order. Thank you for shopping at Bamazon!");
         };
         connection.end();
     });

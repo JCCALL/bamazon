@@ -14,16 +14,16 @@ var connection = mysql.createConnection({
 connection.connect();
 
 
-connection.query('SELECT item_id, product_name, price FROM products', function(err, res){
+connection.query('SELECT item_id, product_name, price, stock_quantity FROM products', function(err, res){
     if(err) console.log(err); 
 
 var table = new Table({
-    head: ['Item ID', 'Product', 'Price']
+    head: ['Item ID', 'Product', 'Price', 'In Stock']
 });
 
 for(var i = 0; i < res.length; i++) {
     table.push(
-        [res[i].item_id, res[i].product_name, res[i].price]
+        [res[i].item_id, res[i].product_name, res[i].price, res[i].stock_quantity]
     );
     }
 
